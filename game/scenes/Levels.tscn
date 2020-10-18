@@ -1,0 +1,292 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://objects/KarmaticArcade.tres" type="DynamicFont" id=1]
+[ext_resource path="res://sprites/ButtonDescentPressed.png" type="Texture" id=2]
+[ext_resource path="res://sprites/ButtonQuitPressed.png" type="Texture" id=3]
+[ext_resource path="res://sprites/ButtonQuit.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Levels.gd" type="Script" id=5]
+[ext_resource path="res://sprites/ButtonDescent.png" type="Texture" id=6]
+[ext_resource path="res://sprites/ButtonGoingUp.png" type="Texture" id=7]
+[ext_resource path="res://sprites/ButtonGoingUpPressed.png" type="Texture" id=8]
+[ext_resource path="res://sprites/ButtonLoadout.png" type="Texture" id=9]
+[ext_resource path="res://sprites/ButtonLoadoutPressed.png" type="Texture" id=10]
+[ext_resource path="res://objects/CheatMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/completion_indicators_no_miss.png" type="Texture" id=12]
+[ext_resource path="res://sprites/completion_indicators_perfect.png" type="Texture" id=13]
+[ext_resource path="res://sprites/completion_indicators_low_vis.png" type="Texture" id=14]
+[ext_resource path="res://sprites/completion_indicators_beaten.png" type="Texture" id=15]
+[ext_resource path="res://objects/CheatMenuTheme.tres" type="Theme" id=16]
+
+[node name="Levels" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 326.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 157.0
+margin_top = 63.0
+margin_right = 482.0
+margin_bottom = 263.0
+
+[node name="Descent" type="HBoxContainer" parent="CenterContainer/Levels"]
+margin_right = 325.0
+margin_bottom = 64.0
+
+[node name="Descent" type="TextureButton" parent="CenterContainer/Levels/Descent"]
+margin_right = 192.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="VBoxContainer" parent="CenterContainer/Levels/Descent"]
+margin_left = 196.0
+margin_right = 325.0
+margin_bottom = 64.0
+
+[node name="Score" type="Label" parent="CenterContainer/Levels/Descent/Stats"]
+margin_right = 129.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "HighScore:"
+
+[node name="Other" type="HBoxContainer" parent="CenterContainer/Levels/Descent/Stats"]
+margin_top = 23.0
+margin_right = 129.0
+margin_bottom = 23.0
+
+[node name="Beaten" type="TextureRect" parent="CenterContainer/Levels/Descent/Stats/Other"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level! Congrats!"
+theme = ExtResource( 16 )
+texture = ExtResource( 15 )
+
+[node name="LowVis" type="TextureRect" parent="CenterContainer/Levels/Descent/Stats/Other"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level with Low Visibility! Amazing!"
+theme = ExtResource( 16 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoMisses" type="HBoxContainer" parent="CenterContainer/Levels/Descent/Stats"]
+margin_top = 27.0
+margin_right = 129.0
+margin_bottom = 27.0
+
+[node name="NoMiss" type="TextureRect" parent="CenterContainer/Levels/Descent/Stats/NoMisses"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level without missing ONCE! Incredible!"
+theme = ExtResource( 16 )
+texture = ExtResource( 12 )
+
+[node name="Perfect" type="TextureRect" parent="CenterContainer/Levels/Descent/Stats/NoMisses"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You Achieved absolute perfection!
+Aboslutely Outstanding!!"
+theme = ExtResource( 16 )
+texture = ExtResource( 13 )
+
+[node name="GoingUp" type="HBoxContainer" parent="CenterContainer/Levels"]
+margin_top = 68.0
+margin_right = 325.0
+margin_bottom = 132.0
+
+[node name="Descent2" type="TextureButton" parent="CenterContainer/Levels/GoingUp"]
+margin_right = 192.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_focused = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="VBoxContainer" parent="CenterContainer/Levels/GoingUp"]
+margin_left = 196.0
+margin_right = 325.0
+margin_bottom = 64.0
+
+[node name="Score" type="Label" parent="CenterContainer/Levels/GoingUp/Stats"]
+margin_right = 129.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "HighScore:"
+
+[node name="Other" type="HBoxContainer" parent="CenterContainer/Levels/GoingUp/Stats"]
+margin_top = 23.0
+margin_right = 129.0
+margin_bottom = 23.0
+
+[node name="Beaten" type="TextureRect" parent="CenterContainer/Levels/GoingUp/Stats/Other"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level! Congrats!"
+theme = ExtResource( 16 )
+texture = ExtResource( 15 )
+
+[node name="LowVis" type="TextureRect" parent="CenterContainer/Levels/GoingUp/Stats/Other"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level with Low Visibility! Amazing!"
+theme = ExtResource( 16 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoMisses" type="HBoxContainer" parent="CenterContainer/Levels/GoingUp/Stats"]
+margin_top = 27.0
+margin_right = 129.0
+margin_bottom = 27.0
+
+[node name="NoMiss" type="TextureRect" parent="CenterContainer/Levels/GoingUp/Stats/NoMisses"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level without missing ONCE! Incredible!"
+theme = ExtResource( 16 )
+texture = ExtResource( 12 )
+
+[node name="Perfect" type="TextureRect" parent="CenterContainer/Levels/GoingUp/Stats/NoMisses"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You Achieved absolute perfection!
+Aboslutely Outstanding!!"
+theme = ExtResource( 16 )
+texture = ExtResource( 13 )
+
+[node name="Loadout" type="HBoxContainer" parent="CenterContainer/Levels"]
+margin_top = 136.0
+margin_right = 325.0
+margin_bottom = 200.0
+
+[node name="Descent2" type="TextureButton" parent="CenterContainer/Levels/Loadout"]
+margin_right = 192.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_focused = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="VBoxContainer" parent="CenterContainer/Levels/Loadout"]
+margin_left = 196.0
+margin_right = 325.0
+margin_bottom = 64.0
+
+[node name="Score" type="Label" parent="CenterContainer/Levels/Loadout/Stats"]
+margin_right = 129.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "HighScore:"
+
+[node name="Other" type="HBoxContainer" parent="CenterContainer/Levels/Loadout/Stats"]
+margin_top = 23.0
+margin_right = 129.0
+margin_bottom = 23.0
+
+[node name="Beaten" type="TextureRect" parent="CenterContainer/Levels/Loadout/Stats/Other"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level! Congrats!"
+theme = ExtResource( 16 )
+texture = ExtResource( 15 )
+
+[node name="LowVis" type="TextureRect" parent="CenterContainer/Levels/Loadout/Stats/Other"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level with Low Visibility! Amazing!"
+theme = ExtResource( 16 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoMisses" type="HBoxContainer" parent="CenterContainer/Levels/Loadout/Stats"]
+margin_top = 27.0
+margin_right = 129.0
+margin_bottom = 27.0
+
+[node name="NoMiss" type="TextureRect" parent="CenterContainer/Levels/Loadout/Stats/NoMisses"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You beat the level without missing ONCE! Incredible!"
+theme = ExtResource( 16 )
+texture = ExtResource( 12 )
+
+[node name="Perfect" type="TextureRect" parent="CenterContainer/Levels/Loadout/Stats/NoMisses"]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "You Achieved absolute perfection!
+Aboslutely Outstanding!!"
+theme = ExtResource( 16 )
+texture = ExtResource( 13 )
+
+[node name="Back" type="TextureButton" parent="."]
+margin_top = 296.0
+margin_right = 192.0
+margin_bottom = 360.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CheatMenu" parent="." instance=ExtResource( 11 )]
+anchor_left = -0.148
+anchor_right = 0.0
+anchor_bottom = 0.069
+margin_left = -8.28
+margin_right = -8.0
+margin_bottom = 0.159998
+
+[node name="CheatHint" type="Label" parent="."]
+margin_left = 316.0
+margin_top = 360.0
+margin_right = 638.0
+margin_bottom = 379.0
+custom_fonts/font = ExtResource( 1 )
+text = "Psst... Try the Konami Code!"
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )

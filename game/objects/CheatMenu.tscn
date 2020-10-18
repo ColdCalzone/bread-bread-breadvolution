@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://objects/KarmaticArcade.tres" type="DynamicFont" id=1]
+[ext_resource path="res://objects/CheatMenu.gd" type="Script" id=2]
+[ext_resource path="res://objects/CheatMenuTheme.tres" type="Theme" id=3]
+
+[node name="CheatMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -545.0
+margin_bottom = -335.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -92.4563 ],
+"_edit_use_anchors_": false
+}
+
+[node name="ShowCheats" type="Button" parent="."]
+margin_right = 95.0
+margin_bottom = 25.0
+hint_tooltip = "Toggle Cheats Menu"
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Cheats"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheatsContainer" type="ScrollContainer" parent="."]
+margin_left = -257.0
+margin_right = -14.0
+margin_bottom = 161.0
+mouse_filter = 1
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cheats" type="VBoxContainer" parent="CheatsContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CheatsContainer/Cheats"]
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

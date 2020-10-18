@@ -1,0 +1,141 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/KarmaticArcade.tres" type="DynamicFont" id=1]
+[ext_resource path="res://sprites/ButtonQuit.png" type="Texture" id=2]
+[ext_resource path="res://sprites/ButtonQuitPressed.png" type="Texture" id=3]
+[ext_resource path="res://sprites/sweet.png" type="Texture" id=4]
+[ext_resource path="res://sprites/bread_toastier.png" type="Texture" id=5]
+
+[node name="Help" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstructionContainers" type="VBoxContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 296.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="InstructionContainers"]
+margin_right = 640.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 640, 0 )
+
+[node name="Label" type="Label" parent="InstructionContainers/CenterContainer"]
+margin_left = 90.0
+margin_right = 550.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "Welcome to Bread Bread Breadvolution!"
+
+[node name="Gameplay" type="HBoxContainer" parent="InstructionContainers"]
+margin_top = 35.0
+margin_right = 640.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 640, 0 )
+
+[node name="Text" type="Label" parent="InstructionContainers/Gameplay"]
+margin_right = 640.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 640, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "This game is all about Getting that bread! Try your best to hit with the beat and get some score bonuses!"
+align = 1
+autowrap = true
+
+[node name="Inputs" type="HBoxContainer" parent="InstructionContainers"]
+margin_top = 92.0
+margin_right = 640.0
+margin_bottom = 111.0
+rect_min_size = Vector2( 640, 0 )
+
+[node name="Text" type="Label" parent="InstructionContainers/Inputs"]
+margin_right = 640.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 640, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "To play this game, use either the Arrow keys or D F  J K"
+autowrap = true
+
+[node name="Sweets" type="HBoxContainer" parent="InstructionContainers"]
+margin_top = 127.0
+margin_right = 640.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 640, 0 )
+
+[node name="Text" type="Label" parent="InstructionContainers/Sweets"]
+margin_right = 536.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 536, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Hitting your inputs close to the beat will reward you with a sweet! Sweets add more to your multiplier than normal hits."
+autowrap = true
+
+[node name="Image" type="Control" parent="InstructionContainers/Sweets"]
+margin_left = 540.0
+margin_right = 540.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 32 )
+
+[node name="Sprite" type="Sprite" parent="InstructionContainers/Sweets/Image"]
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( 0, 16 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[node name="Toast" type="HBoxContainer" parent="InstructionContainers"]
+margin_top = 206.0
+margin_right = 640.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 640, 0 )
+
+[node name="Image" type="Control" parent="InstructionContainers/Toast"]
+margin_right = 48.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 48, 64 )
+rect_pivot_offset = Vector2( 64, 32 )
+
+[node name="Sprite" type="Sprite" parent="InstructionContainers/Toast/Image"]
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="Text" type="Label" parent="InstructionContainers/Toast"]
+margin_left = 52.0
+margin_right = 630.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 578, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Toast is a reward for risky gameplay or as compensation for missing too many notes! Toast will Multiply the multiplier!"
+align = 2
+autowrap = true
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_top = 296.0
+margin_right = 192.0
+margin_bottom = 360.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
