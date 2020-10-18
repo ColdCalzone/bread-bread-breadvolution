@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Titlescreen.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Breadbackup.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://sprites/ButtonPlayPressed.png" type="Texture" id=9]
 [ext_resource path="res://sprites/ButtonHelpPressed.png" type="Texture" id=10]
 [ext_resource path="res://sprites/ButtonHelp.png" type="Texture" id=11]
+[ext_resource path="res://objects/BG/BackgroundScene.tscn" type="PackedScene" id=12]
 
 [node name="Titlescreen" type="Control"]
 anchor_right = 1.0
@@ -20,6 +21,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BackgroundScene" parent="." instance=ExtResource( 12 )]
 
 [node name="LogoContainer" type="CenterContainer" parent="."]
 anchor_top = 0.089

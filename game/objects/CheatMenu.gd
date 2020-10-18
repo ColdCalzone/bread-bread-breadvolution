@@ -18,9 +18,9 @@ class_name CheatMenu
 func toggle_cheats_shown():
 	currently_showing = !currently_showing
 	if currently_showing:
-		tween.interpolate_property(self, "rect_position", Vector2(0, 0), Vector2(266, 0), 0.4, Tween.TRANS_EXPO)
+		tween.interpolate_property(self, "rect_position", Vector2(0, 0), Vector2(256, 0), 0.4, Tween.TRANS_EXPO)
 	if !currently_showing:
-		tween.interpolate_property(self, "rect_position", Vector2(266, 0), Vector2(0, 0), 0.4, Tween.TRANS_EXPO)
+		tween.interpolate_property(self, "rect_position", Vector2(256, 0), Vector2(0, 0), 0.4, Tween.TRANS_EXPO)
 	tween.start()
 
 func toggle_cheat(value : bool, cheat : String) -> bool:
