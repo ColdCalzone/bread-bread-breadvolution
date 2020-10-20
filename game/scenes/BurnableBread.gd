@@ -26,7 +26,7 @@ func burn_bread():
 	bread.rotation_degrees = sprite.rotation_degrees
 	get_tree().get_root().get_node("Game").call_deferred("add_child", bread)
 	emit_signal("game_over")
-	queue_free()
+	visible = false
 
 func pulse_with_beat():
 	tween.interpolate_property(sprite, "scale", Vector2(1, 1), Vector2(1.2, 1.2), 0.1, Tween.TRANS_LINEAR)

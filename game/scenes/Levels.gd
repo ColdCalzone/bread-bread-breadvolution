@@ -65,10 +65,10 @@ func _ready():
 	tween.interpolate_property(fade, "color", Color(0, 0, 0, 1), Color(0, 0, 0, 0), 0.5, Tween.TRANS_LINEAR)
 	tween.start()
 	descent.connect("pressed", self, "play", ["Descent"])
-	going_up.connect("pressed", self, "play", ["Going Up"])
+	going_up.connect("pressed", self, "play", ["GoingUp"])
 	loadout.connect("pressed", self, "play", ["Loadout"])
 	back.connect("pressed", self, "back")
 	descent_score.text = "Highscore: " + String(ScoreTracker.get_score("Descent"))
-	going_up_score.text = "Highscore: " + String(ScoreTracker.get_score("Going Up"))
+	going_up_score.text = "Highscore: " + String(ScoreTracker.get_score("GoingUp"))
 	loadout_score.text = "Highscore: " + String(ScoreTracker.get_score("Loadout"))
 	

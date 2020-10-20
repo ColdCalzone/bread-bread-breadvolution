@@ -9,6 +9,7 @@ const SCORE_PATH = "user://scores.json"
 const CONFIG_PATH = "user://settings.cfg"
 const CHEAT_PATH = "user://cheats.json"
 const COMPLETION_PATH = "user://completion.json"
+const UPDATE_CHECK = "user://updated"
 
 var config : ConfigFile
 
@@ -87,7 +88,7 @@ func new_game():
 	scores = {
 		"Descent": 0,
 		"Loadout": 0,
-		"Going Up": 0
+		"GoingUp": 0
 	}
 	completion = {
 		"Descent": {
@@ -153,6 +154,8 @@ func save_game():
 	json = JSON.print(data)
 	file.open(COMPLETION_PATH, File.WRITE)
 	file.store_string(json)
+	file.open(UPDATE_CHECK, File.WRITE)
+	file.store_string("GFIUHRIUGNREUGNREYUNHGIYERBNERIGUERNGFU")
 
 func load_game():
 	var file = File.new()
@@ -174,5 +177,5 @@ func load_game():
 		file.close()
 		var json = JSON.parse(completion_content).result
 		completion = json
-	if not file.file_exists(CHEAT_PATH) or not file.file_exists(SCORE_PATH) or not file.file_exists(COMPLETION_PATH):
+	if not file.file_exists(CHEAT_PATH) or not file.file_exists(SCORE_PATH) or not file.file_exists(COMPLETION_PATH) or not file.file_exists(UPDATE_CHECK):
 		new_game()

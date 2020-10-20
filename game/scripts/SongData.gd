@@ -4,7 +4,7 @@ var current_level : String
 
 var songs : Dictionary = {
 	"Descent": "res://song_data/Descent.tres",
-	"Going Up": "res://song_data/GoingUp.tres",
+	"GoingUp": "res://song_data/GoingUp.tres",
 	"Loadout": "res://song_data/Loadout.tres"
 }
 
