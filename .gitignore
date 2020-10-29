@@ -11,3 +11,4 @@ release/linux/Bread Bread Breadvolution.x86_64
 release/osx/Bread Bread Breadvolution.zip
 release/win/Bread Bread Breadvolution.exe
 release/win/Bread Bread Breadvolution.pck
+*.tmp

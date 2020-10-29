@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://objects/KarmaticArcade.tres" type="DynamicFont" id=1]
 [ext_resource path="res://sprites/Fullscreen.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/Settings.gd" type="Script" id=6]
 [ext_resource path="res://sprites/ButtonCredits.png" type="Texture" id=7]
 [ext_resource path="res://sprites/ButtonCreditsPressed.png" type="Texture" id=8]
+[ext_resource path="res://objects/BG/BackgroundScene.tscn" type="PackedScene" id=9]
 
 [node name="Settings" type="Control"]
 margin_right = 640.0
@@ -17,6 +18,8 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BackgroundScene" parent="." instance=ExtResource( 9 )]
 
 [node name="Sound" type="CenterContainer" parent="."]
 margin_left = -2.0
