@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/RecieverContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/SpawnerContainer.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://sprites/SweetMeterBacking.png" type="Texture" id=11]
 [ext_resource path="res://sprites/BreadGrabber.png" type="Texture" id=12]
 [ext_resource path="res://objects/BG/VerticalBackgroundScene.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/KarmaticArcade.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 324.657, 51.3397 )
@@ -30,23 +31,27 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 130, 15 )
+[sub_resource type="DynamicFont" id=4]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
 
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 130, 15 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 96.0721, 210.089 )
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 130, 15 )
 
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 96.0721, 210.089 )
+
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 327.012, 50.0028 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
-bread_speed = 200
 
 [node name="BackgroundScene" parent="." instance=ExtResource( 13 )]
 
@@ -80,10 +85,6 @@ margin_left = 98.0
 margin_top = 13.0
 margin_right = 402.0
 margin_bottom = 77.0
-
-[node name="Timer" type="Timer" parent="."]
-pause_mode = 1
-process_mode = 0
 
 [node name="DeletionZone" type="Area2D" parent="."]
 pause_mode = 1
@@ -139,14 +140,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Multiplyer" type="Label" parent="UI"]
+[node name="Multiplier" type="Label" parent="UI"]
 margin_top = 56.0
 margin_right = 164.0
 margin_bottom = 75.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 8
-text = "MULTIPLYER: 1X"
+text = "MULTIPLIER: 1X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Accuracy" type="Label" parent="UI"]
+margin_top = 80.0
+margin_right = 166.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+text = "ACCURACY: 100"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -173,17 +186,17 @@ __meta__ = {
 
 [node name="ToastPercent" type="TextureProgress" parent="UI"]
 margin_left = 81.0
-margin_top = 80.0
+margin_top = 104.0
 margin_right = 181.0
-margin_bottom = 100.0
+margin_bottom = 124.0
 max_value = 7.0
 texture_under = ExtResource( 9 )
 texture_progress = ExtResource( 8 )
 
 [node name="Toast" type="Label" parent="UI"]
-margin_top = 80.0
-margin_right = 40.0
-margin_bottom = 94.0
+margin_top = 104.0
+margin_right = 78.0
+margin_bottom = 123.0
 custom_fonts/font = ExtResource( 4 )
 text = "Toast:"
 __meta__ = {
@@ -289,8 +302,8 @@ margin_top = 344.0
 margin_right = 403.0
 margin_bottom = 360.0
 custom_icons/grabber_disabled = ExtResource( 12 )
-custom_styles/slider = SubResource( 4 )
-custom_styles/grabber_area = SubResource( 5 )
+custom_styles/slider = SubResource( 5 )
+custom_styles/grabber_area = SubResource( 6 )
 max_value = 1.0
 step = 0.001
 editable = false
@@ -335,7 +348,7 @@ position = Vector2( 96, 209 )
 [node name="CollisionShape" type="CollisionShape2D" parent="FireContainer/Fire/Fire/FireArea"]
 position = Vector2( 0, 0.0200005 )
 scale = Vector2( 1, -1 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="FireTopper" type="Sprite" parent="FireContainer/Fire"]
 position = Vector2( 0, 148 )
@@ -354,15 +367,8 @@ collision_mask = 524288
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ToastyBouncer"]
 position = Vector2( -0.162323, 0.472046 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="GameOver" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-
-[node name="StartDelay" type="Timer" parent="."]
-pause_mode = 1
-one_shot = true
-
-[node name="BreadBop" type="Timer" parent="."]
-process_mode = 0

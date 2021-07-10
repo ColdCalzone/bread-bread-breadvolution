@@ -1,22 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/BreadReciever.gd" type="Script" id=1]
 [ext_resource path="res://sprites/bread_outline.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.5, 32.25 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32.5, 32.5 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 3.21939, 3.16061 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 3.24471, 3.19747 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 3.24471, 3.19747 )
 
 [node name="BreadReciever" type="Control"]
 script = ExtResource( 1 )
@@ -24,52 +9,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BreadArea" type="Area2D" parent="."]
-position = Vector2( 32, 32 )
-collision_layer = 0
-
-[node name="CollisionShape" type="CollisionShape2D" parent="BreadArea"]
-shape = SubResource( 1 )
-disabled = true
-
-[node name="ReadArea" type="Area2D" parent="."]
-position = Vector2( 32, 32 )
-collision_layer = 0
-
-[node name="CollisionShape" type="CollisionShape2D" parent="ReadArea"]
-shape = SubResource( 2 )
-
-[node name="SweetSpot" type="Area2D" parent="."]
-position = Vector2( 10, 54 )
-collision_layer = 0
-
-[node name="CollisionShape" type="CollisionShape2D" parent="SweetSpot"]
-shape = SubResource( 3 )
-disabled = true
-
-[node name="SweetReader" type="Area2D" parent="."]
-position = Vector2( 10, 54 )
-collision_layer = 0
-
-[node name="CollisionShape" type="CollisionShape2D" parent="SweetReader"]
-shape = SubResource( 4 )
-
-[node name="SweetReaderExit" type="Area2D" parent="."]
-position = Vector2( 10, 10 )
-collision_layer = 0
-
-[node name="CollisionShape" type="CollisionShape2D" parent="SweetReaderExit"]
-shape = SubResource( 5 )
-
-[node name="Timer" type="Timer" parent="."]
-process_mode = 0
-wait_time = 0.1
-one_shot = true
-
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 32, 32 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
-
-[node name="TweenGrow" type="Tween" parent="."]

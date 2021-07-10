@@ -23,11 +23,11 @@ signal bread_hit
 signal burn_bread
 
 func delete(sweet : bool, points : int) -> void:
-	points *= (game.multiplyer if game.multiplyer > 0 else 1)
+	points *= (game.multiplier if game.multiplier > 0 else 1)
 	tween.interpolate_property(sweet_sprite, "position", sweet_sprite.position, Vector2(32, -16), 1.0, Tween.TRANS_LINEAR)
 	tween.interpolate_property(points_label, "rect_position", points_label.rect_position, Vector2(24, -64), 1.0, Tween.TRANS_LINEAR)
 	game.points += points
-	#tween.interpolate_property(get_parent(), "points", get_parent().points, get_parent().points + points * get_parent().multiplyer, 0.0, Tween.TRANS_LINEAR)
+	#tween.interpolate_property(get_parent(), "points", get_parent().points, get_parent().points + points * get_parent().multiplier, 0.0, Tween.TRANS_LINEAR)
 	game.consecutive_sweets = max(game.consecutive_sweets, 0)
 	if points > 0:
 		tween.interpolate_property(game.point_label, "rect_scale", Vector2(1, 1), Vector2(1.1, 1.1), 0.1, Tween.TRANS_LINEAR)
@@ -75,7 +75,7 @@ func _ready() -> void:
 	sprite.region_rect = Rect2(64 * rotation_direction, 0, 64, 64)
 	connect("burn_bread", game, "burn_bread_on_perfect_miss")
 	connect("bread_hit", game, "consecutive_combos")
-	match game.toast_multiplyer:
+	match game.toast_multiplier:
 		7:
 			sprite.texture = TOASTIER_SPRITE
 		4:

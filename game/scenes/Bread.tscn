@@ -6,19 +6,12 @@
 [ext_resource path="res://objects/KarmaticArcade.tres" type="DynamicFont" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.8196, 31.8651 )
+extents = Vector2( 32, 32 )
 
 [node name="Bread" type="Node2D" groups=[
 "bread",
 ]]
 script = ExtResource( 2 )
-
-[node name="BreadArea" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionShape" type="CollisionShape2D" parent="BreadArea"]
-position = Vector2( 32, 32 )
-shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -47,3 +40,9 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 32, 32 )
+shape = SubResource( 1 )

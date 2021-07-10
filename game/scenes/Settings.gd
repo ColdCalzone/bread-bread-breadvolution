@@ -33,7 +33,7 @@ func toggle_fullscreen(pressed):
 	save_config()
 
 func change_volume(current_volume):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(current_volume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("MUS"), linear2db(current_volume))
 	save_config()
 
 func load_config():

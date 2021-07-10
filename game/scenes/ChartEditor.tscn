@@ -1,0 +1,1678 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/ChartEditor.gd" type="Script" id=1]
+[ext_resource path="res://sprites/bread_left.png" type="Texture" id=2]
+[ext_resource path="res://sprites/bread_right.png" type="Texture" id=3]
+[ext_resource path="res://sprites/bread_up.png" type="Texture" id=4]
+[ext_resource path="res://sprites/bread_down.png" type="Texture" id=5]
+[ext_resource path="res://src/new_styleboxflat.tres" type="StyleBox" id=6]
+[ext_resource path="res://src/Karmatic.tres" type="DynamicFont" id=7]
+[ext_resource path="res://src/KarmaticArcade.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://sprites/BreadGrabber.png" type="Texture" id=9]
+[ext_resource path="res://sprites/SweetMeterBacking.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Play.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 130, 15 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 130, 15 )
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 7 )
+
+[node name="ChartEditor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hbox" type="HBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 634.0
+margin_bottom = 364.0
+rect_min_size = Vector2( 630, 360 )
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridChart" type="GridContainer" parent="Hbox"]
+margin_right = 88.0
+margin_bottom = 360.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Hbox/GridChart"]
+margin_right = 22.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_right = 44.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel2" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_right = 66.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel3" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel4" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_right = 88.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel4" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel5" type="Panel" parent="Hbox/GridChart"]
+margin_top = 22.0
+margin_right = 22.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel5" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel6" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 22.0
+margin_right = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel6" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel7" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 22.0
+margin_right = 66.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel7" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel8" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 22.0
+margin_right = 88.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel8" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel9" type="Panel" parent="Hbox/GridChart"]
+margin_top = 44.0
+margin_right = 22.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel9" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel10" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 44.0
+margin_right = 44.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel10" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel11" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 44.0
+margin_right = 66.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel11" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel12" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 44.0
+margin_right = 88.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel12" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel13" type="Panel" parent="Hbox/GridChart"]
+margin_top = 66.0
+margin_right = 22.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel13" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel14" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 66.0
+margin_right = 44.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel14" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel15" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 66.0
+margin_right = 66.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel15" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel16" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 66.0
+margin_right = 88.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel16" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel17" type="Panel" parent="Hbox/GridChart"]
+margin_top = 88.0
+margin_right = 22.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel17" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel18" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 88.0
+margin_right = 44.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel18" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel19" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 88.0
+margin_right = 66.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel19" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel20" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 88.0
+margin_right = 88.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel20" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel21" type="Panel" parent="Hbox/GridChart"]
+margin_top = 110.0
+margin_right = 22.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel21" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel22" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 110.0
+margin_right = 44.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel22" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel23" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 110.0
+margin_right = 66.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel23" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel24" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 110.0
+margin_right = 88.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel24" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel25" type="Panel" parent="Hbox/GridChart"]
+margin_top = 132.0
+margin_right = 22.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel25" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel26" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 132.0
+margin_right = 44.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel26" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel27" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 132.0
+margin_right = 66.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel27" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel28" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 132.0
+margin_right = 88.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel28" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel29" type="Panel" parent="Hbox/GridChart"]
+margin_top = 154.0
+margin_right = 22.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel29" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel30" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 154.0
+margin_right = 44.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel30" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel31" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 154.0
+margin_right = 66.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel31" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel32" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 154.0
+margin_right = 88.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel32" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel33" type="Panel" parent="Hbox/GridChart"]
+margin_top = 176.0
+margin_right = 22.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel33" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel34" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 176.0
+margin_right = 44.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel34" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel35" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 176.0
+margin_right = 66.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel35" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel36" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 176.0
+margin_right = 88.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel36" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel37" type="Panel" parent="Hbox/GridChart"]
+margin_top = 198.0
+margin_right = 22.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel37" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel38" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 198.0
+margin_right = 44.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel38" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel39" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 198.0
+margin_right = 66.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel39" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel40" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 198.0
+margin_right = 88.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel40" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel41" type="Panel" parent="Hbox/GridChart"]
+margin_top = 220.0
+margin_right = 22.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel41" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel42" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 220.0
+margin_right = 44.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel42" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel43" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 220.0
+margin_right = 66.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel43" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel44" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 220.0
+margin_right = 88.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel44" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel45" type="Panel" parent="Hbox/GridChart"]
+margin_top = 242.0
+margin_right = 22.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel45" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel46" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 242.0
+margin_right = 44.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel46" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel47" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 242.0
+margin_right = 66.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel47" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel48" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 242.0
+margin_right = 88.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel48" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel49" type="Panel" parent="Hbox/GridChart"]
+margin_top = 264.0
+margin_right = 22.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel49" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel50" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 264.0
+margin_right = 44.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel50" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel51" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 264.0
+margin_right = 66.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel51" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel52" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 264.0
+margin_right = 88.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel52" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel53" type="Panel" parent="Hbox/GridChart"]
+margin_top = 286.0
+margin_right = 22.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel53" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel54" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 286.0
+margin_right = 44.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel54" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel55" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 286.0
+margin_right = 66.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel55" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel56" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 286.0
+margin_right = 88.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel56" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel57" type="Panel" parent="Hbox/GridChart"]
+margin_top = 308.0
+margin_right = 22.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel57" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel58" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 308.0
+margin_right = 44.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel58" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel59" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 308.0
+margin_right = 66.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel59" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel60" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 308.0
+margin_right = 88.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel60" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel61" type="Panel" parent="Hbox/GridChart"]
+margin_top = 330.0
+margin_right = 22.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Left" type="TextureButton" parent="Hbox/GridChart/Panel61" groups=[
+"ChartButton",
+]]
+anchor_top = -2.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+margin_top = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel62" type="Panel" parent="Hbox/GridChart"]
+margin_left = 22.0
+margin_top = 330.0
+margin_right = 44.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Down" type="TextureButton" parent="Hbox/GridChart/Panel62" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel63" type="Panel" parent="Hbox/GridChart"]
+margin_left = 44.0
+margin_top = 330.0
+margin_right = 66.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 22, 22 )
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Up" type="TextureButton" parent="Hbox/GridChart/Panel63" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel64" type="Panel" parent="Hbox/GridChart"]
+margin_left = 66.0
+margin_top = 330.0
+margin_right = 88.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 22, 22 )
+
+[node name="Right" type="TextureButton" parent="Hbox/GridChart/Panel64" groups=[
+"ChartButton",
+]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 22, 22 )
+toggle_mode = true
+action_mode = 0
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VboxDetails" type="VBoxContainer" parent="Hbox"]
+margin_left = 104.0
+margin_right = 372.0
+margin_bottom = 360.0
+
+[node name="Name" type="HBoxContainer" parent="Hbox/VboxDetails"]
+margin_right = 268.0
+margin_bottom = 32.0
+custom_constants/separation = 23
+
+[node name="Label" type="Label" parent="Hbox/VboxDetails/Name"]
+margin_top = 6.0
+margin_right = 126.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 7 )
+text = "Song name:"
+
+[node name="TextEdit" type="TextEdit" parent="Hbox/VboxDetails/Name"]
+margin_left = 149.0
+margin_right = 245.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 96, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Artist" type="HBoxContainer" parent="Hbox/VboxDetails"]
+margin_top = 36.0
+margin_right = 268.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="Hbox/VboxDetails/Artist"]
+margin_top = 6.0
+margin_right = 145.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 7 )
+text = "Song artist:"
+
+[node name="TextEdit" type="TextEdit" parent="Hbox/VboxDetails/Artist"]
+margin_left = 149.0
+margin_right = 245.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 96, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BPM" type="HBoxContainer" parent="Hbox/VboxDetails"]
+margin_top = 72.0
+margin_right = 268.0
+margin_bottom = 96.0
+custom_constants/separation = 59
+
+[node name="Label" type="Label" parent="Hbox/VboxDetails/BPM"]
+margin_top = 2.0
+margin_right = 112.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 7 )
+text = "Song BPM:"
+
+[node name="SpinBox" type="SpinBox" parent="Hbox/VboxDetails/BPM"]
+margin_left = 171.0
+margin_right = 245.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+max_value = 999.0
+step = 0.1
+value = 60.0
+
+[node name="FileSelect" type="HBoxContainer" parent="Hbox/VboxDetails"]
+margin_top = 100.0
+margin_right = 268.0
+margin_bottom = 125.0
+
+[node name="Label" type="Label" parent="Hbox/VboxDetails/FileSelect"]
+margin_top = 3.0
+margin_right = 118.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 7 )
+text = "Song File:"
+
+[node name="Button" type="Button" parent="Hbox/VboxDetails/FileSelect"]
+margin_left = 122.0
+margin_right = 268.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 100, 20 )
+custom_fonts/font = ExtResource( 7 )
+text = "Select file"
+
+[node name="VboxMath" type="VBoxContainer" parent="."]
+margin_left = 388.0
+margin_top = 4.0
+margin_right = 636.0
+margin_bottom = 364.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalculatedPages" type="HBoxContainer" parent="VboxMath"]
+margin_right = 248.0
+margin_bottom = 41.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="VboxMath/CalculatedPages"]
+margin_right = 198.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 2 )
+text = "Recommended
+Number of pages  "
+
+[node name="Label2" type="Label" parent="VboxMath/CalculatedPages"]
+margin_left = 198.0
+margin_top = 11.0
+margin_right = 240.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 7 )
+text = "999"
+
+[node name="Audio" type="HBoxContainer" parent="VboxMath"]
+margin_top = 45.0
+margin_right = 248.0
+margin_bottom = 83.0
+custom_constants/separation = 0
+
+[node name="Button" type="Button" parent="VboxMath/Audio"]
+margin_right = 44.0
+margin_bottom = 38.0
+toggle_mode = true
+icon = ExtResource( 11 )
+
+[node name="HSlider" type="HSlider" parent="VboxMath/Audio"]
+margin_left = 44.0
+margin_right = 248.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 204, 38 )
+custom_icons/grabber_disabled = ExtResource( 9 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 4 )
+max_value = 1.0
+step = 0.001
+editable = false
+scrollable = false
+tick_count = 5
+ticks_on_borders = true
+
+[node name="PageSelect" type="HBoxContainer" parent="."]
+margin_left = 95.0
+margin_top = 332.0
+margin_right = 156.0
+margin_bottom = 352.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="SpinBox" parent="PageSelect"]
+margin_right = 74.0
+margin_bottom = 29.0
+theme = SubResource( 1 )
+min_value = 1.0
+value = 1.0
+allow_greater = true
+
+[node name="Left" type="Button" parent="PageSelect"]
+margin_left = 78.0
+margin_right = 98.0
+margin_bottom = 29.0
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Button" parent="PageSelect"]
+margin_left = 102.0
+margin_right = 122.0
+margin_bottom = 29.0
+text = ">"
+
+[node name="SaveChart" type="Button" parent="."]
+margin_left = 496.153
+margin_top = 307.082
+margin_right = 637.153
+margin_bottom = 356.082
+custom_fonts/font = ExtResource( 7 )
+text = "Save Chart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File" type="CenterContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 640, 360 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="File"]
+margin_left = 119.0
+margin_top = 30.0
+margin_right = 519.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 400, 300 )
+mouse_filter = 1
+window_title = "Choose the song's file"
+mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Hbox/VboxDetails/FileSelect/Button" to="." method="_on_file_select_button"]
+[connection signal="button_up" from="VboxMath/Audio/Button" to="." method="_on_play_button_up"]
+[connection signal="value_changed" from="PageSelect/Label" to="." method="_on_Label_value_changed"]
+[connection signal="button_up" from="SaveChart" to="." method="_on_save_button"]
+[connection signal="file_selected" from="File/FileDialog" to="." method="_on_FileDialog_file_selected"]

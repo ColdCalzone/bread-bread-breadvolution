@@ -16,7 +16,7 @@ const BURNT_BREAD = preload("res://objects/BurntBread.tscn")
 var rotation_speed : float = 150
 
 signal game_over
-signal toasting(multiplyer)
+signal toasting(multiplier)
 
 func burn_bread():
 	set_physics_process(false)
@@ -33,10 +33,10 @@ func pulse_with_beat():
 	tween.interpolate_property(sprite, "scale", Vector2(1.2, 1.2), Vector2(1, 1), 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.1)
 	tween.start()
 
-func toast(multiplyer : int):
-	#print(multiplyer)
-	emit_signal("toasting", multiplyer)
-	match multiplyer:
+func toast(multiplier : int):
+	#print(multiplier)
+	emit_signal("toasting", multiplier)
+	match multiplier:
 		1:
 			sprite.texture = TOASTY_SPRITE
 			rotation_speed = 200
