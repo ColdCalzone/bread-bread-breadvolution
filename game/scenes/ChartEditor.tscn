@@ -12,20 +12,20 @@
 [ext_resource path="res://sprites/SweetMeterBacking.png" type="Texture" id=10]
 [ext_resource path="res://sprites/Play.png" type="Texture" id=11]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 130, 15 )
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 130, 15 )
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 10 )
-region_rect = Rect2( 0, 0, 130, 15 )
-
-[sub_resource type="Theme" id=1]
+[sub_resource type="Theme" id=4]
 default_font = ExtResource( 7 )
 
 [node name="ChartEditor" type="Control"]
@@ -1550,11 +1550,32 @@ rect_min_size = Vector2( 100, 20 )
 custom_fonts/font = ExtResource( 7 )
 text = "Select file"
 
+[node name="StartDelay" type="HBoxContainer" parent="Hbox/VboxDetails"]
+margin_top = 129.0
+margin_right = 268.0
+margin_bottom = 153.0
+custom_constants/separation = 17
+
+[node name="Label" type="Label" parent="Hbox/VboxDetails/StartDelay"]
+margin_top = 2.0
+margin_right = 154.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 7 )
+text = "Start delay: "
+
+[node name="SpinBox" type="SpinBox" parent="Hbox/VboxDetails/StartDelay"]
+margin_left = 171.0
+margin_right = 245.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 74, 20 )
+max_value = 1.0
+step = 0.0
+
 [node name="VboxMath" type="VBoxContainer" parent="."]
 margin_left = 388.0
 margin_top = 4.0
 margin_right = 636.0
-margin_bottom = 364.0
+margin_bottom = 87.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1567,7 +1588,7 @@ custom_constants/separation = 0
 [node name="Label" type="Label" parent="VboxMath/CalculatedPages"]
 margin_right = 198.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Recommended
 Number of pages  "
 
@@ -1597,15 +1618,89 @@ margin_right = 248.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 204, 38 )
 custom_icons/grabber_disabled = ExtResource( 9 )
+custom_icons/grabber_highlight = ExtResource( 9 )
 custom_icons/grabber = ExtResource( 9 )
-custom_styles/slider = SubResource( 3 )
-custom_styles/grabber_area = SubResource( 4 )
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
 max_value = 1.0
-step = 0.001
-editable = false
+step = 0.0
 scrollable = false
 tick_count = 5
 ticks_on_borders = true
+
+[node name="VboxMath2" type="VBoxContainer" parent="."]
+margin_left = 388.0
+margin_top = 130.0
+margin_right = 635.0
+margin_bottom = 364.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioSpeed" type="HBoxContainer" parent="VboxMath2"]
+margin_right = 247.0
+margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="VboxMath2/AudioSpeed"]
+margin_top = 9.0
+margin_right = 52.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 7 )
+text = "spd:"
+
+[node name="HSpeed" type="HSlider" parent="VboxMath2/AudioSpeed"]
+margin_left = 56.0
+margin_right = 246.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 190, 38 )
+custom_icons/grabber_disabled = ExtResource( 9 )
+custom_icons/grabber_highlight = ExtResource( 9 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+min_value = 0.1
+max_value = 1.0
+step = 0.0
+value = 1.0
+scrollable = false
+tick_count = 3
+ticks_on_borders = true
+
+[node name="SpeedLabels" type="HBoxContainer" parent="VboxMath2"]
+margin_top = 42.0
+margin_right = 247.0
+margin_bottom = 61.0
+custom_constants/separation = 55
+
+[node name="LabelSpace" type="Label" parent="VboxMath2/SpeedLabels"]
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 7 )
+
+[node name="Label0" type="Label" parent="VboxMath2/SpeedLabels"]
+margin_left = 55.0
+margin_right = 69.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 7 )
+text = "0"
+
+[node name="LabelSpace2" type="Label" parent="VboxMath2/SpeedLabels"]
+margin_left = 124.0
+margin_right = 124.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 7 )
+
+[node name="LabelSpace3" type="Label" parent="VboxMath2/SpeedLabels"]
+margin_left = 179.0
+margin_right = 179.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 7 )
+
+[node name="Label1" type="Label" parent="VboxMath2/SpeedLabels"]
+margin_left = 234.0
+margin_right = 247.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 7 )
+text = "1"
 
 [node name="PageSelect" type="HBoxContainer" parent="."]
 margin_left = 95.0
@@ -1619,25 +1714,10 @@ __meta__ = {
 [node name="Label" type="SpinBox" parent="PageSelect"]
 margin_right = 74.0
 margin_bottom = 29.0
-theme = SubResource( 1 )
+theme = SubResource( 4 )
 min_value = 1.0
 value = 1.0
 allow_greater = true
-
-[node name="Left" type="Button" parent="PageSelect"]
-margin_left = 78.0
-margin_right = 98.0
-margin_bottom = 29.0
-text = "<"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Right" type="Button" parent="PageSelect"]
-margin_left = 102.0
-margin_right = 122.0
-margin_bottom = 29.0
-text = ">"
 
 [node name="SaveChart" type="Button" parent="."]
 margin_left = 496.153
@@ -1646,6 +1726,17 @@ margin_right = 637.153
 margin_bottom = 356.082
 custom_fonts/font = ExtResource( 7 )
 text = "Save Chart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadChart" type="Button" parent="."]
+margin_left = 496.153
+margin_top = 256.082
+margin_right = 637.153
+margin_bottom = 305.082
+custom_fonts/font = ExtResource( 7 )
+text = "Load Chart"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1660,19 +1751,23 @@ __meta__ = {
 }
 
 [node name="FileDialog" type="FileDialog" parent="File"]
-margin_left = 119.0
+margin_left = 120.0
 margin_top = 30.0
-margin_right = 519.0
+margin_right = 520.0
 margin_bottom = 330.0
 rect_min_size = Vector2( 400, 300 )
 mouse_filter = 1
-window_title = "Choose the song's file"
+window_title = "Open a File"
 mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="button_up" from="Hbox/VboxDetails/FileSelect/Button" to="." method="_on_file_select_button"]
 [connection signal="button_up" from="VboxMath/Audio/Button" to="." method="_on_play_button_up"]
+[connection signal="gui_input" from="VboxMath/Audio/HSlider" to="." method="_on_HSlider_gui_input"]
+[connection signal="value_changed" from="VboxMath/Audio/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="VboxMath2/AudioSpeed/HSpeed" to="." method="_on_HSpeed_value_changed"]
 [connection signal="value_changed" from="PageSelect/Label" to="." method="_on_Label_value_changed"]
 [connection signal="button_up" from="SaveChart" to="." method="_on_save_button"]
+[connection signal="button_up" from="LoadChart" to="." method="_on_load_button_up"]
 [connection signal="file_selected" from="File/FileDialog" to="." method="_on_FileDialog_file_selected"]

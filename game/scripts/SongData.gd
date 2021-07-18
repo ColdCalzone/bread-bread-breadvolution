@@ -3,9 +3,9 @@ extends Node
 var current_level : String
 
 var songs : Dictionary = {
-	"Descent": "res://song_data/Descent.tres",
-	"GoingUp": "res://song_data/GoingUp.tres",
-	"Loadout": "res://song_data/Loadout.tres"
+	"Descent": "res://song_data/Descent.bread",
+	"GoingUp": "res://song_data/GoingUp.bread",
+	"Loadout": "res://song_data/Loadout.bread"
 }
 
 func get_level() -> String:
